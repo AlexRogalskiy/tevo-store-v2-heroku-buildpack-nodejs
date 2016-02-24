@@ -569,7 +569,7 @@ testUserConfig() {
 
 testDefaultProcType() {
   release "stable-node"
-  assertCaptured "web: npm start"
+  assertCaptured "web: npm dev"
   assertCapturedSuccess
 }
 
