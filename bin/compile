@@ -80,6 +80,7 @@ create_env() {
 
 # Add $GIT_SSH_KEY to env
 load_git_ssh_key() {
+ echo "Loading git key"
   if [ "$GIT_SSH_KEY" != "" ]; then
     echo $GIT_SSH_KEY | base64 --decode > id_rsa
     # launch ssh-agent, we'll use it to serve our ssh key
@@ -109,6 +110,7 @@ header "Creating runtime environment"
 mkdir -p "$BUILD_DIR/.heroku/node/"
 cd $BUILD_DIR
 create_env # can't pipe the whole thing because piping causes subshells, preventing exports
+echo "Finished creating enviorment"
 load_git_ssh_key
 list_node_config | output "$LOG_FILE"
 
