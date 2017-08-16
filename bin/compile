@@ -82,8 +82,6 @@ create_env() {
 load_git_ssh_key() {
  echo "Loading git key"
   if [ "$GIT_SSH_KEY" != "" ]; then
-    echo "Decoding key"
-    echo $GIT_SSH_KEY
     echo $GIT_SSH_KEY | base64 --decode > id_rsa
     # launch ssh-agent, we'll use it to serve our ssh key
     # and kill it towards the end of the buildpack's run
